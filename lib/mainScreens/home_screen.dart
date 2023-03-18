@@ -4,8 +4,11 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:servemandu_users_app/assistantMethods/assistant_methods.dart';
+import 'package:servemandu_users_app/global/global.dart';
 import 'package:servemandu_users_app/models/sellers.dart';
+import 'package:servemandu_users_app/splashScreen/splash_screen.dart';
 import 'package:servemandu_users_app/widgets/sellers_design.dart';
 import 'package:servemandu_users_app/widgets/my_drawer.dart';
 import 'package:servemandu_users_app/widgets/progress_bar.dart';
@@ -53,6 +56,28 @@ class _HomeScreenState extends State<HomeScreen> {
     "slider/26.png",
     "slider/27.png",
   ];
+
+//Blocking users from admin panel
+  restrictBlockedUsersFromUsingApp() async
+  {
+    await FirebaseFirestore.instance.collection("users")
+      .doc(firebaseAuth.currentUser!.uid)
+      .get()
+      .then((snapshot)
+      {
+        if(snapshot.data()!["status"]!="approved")
+        {
+          Fluttertoast.showToast(msg: "You have been blocked.");
+          firebaseAuth.signOut();
+          Navigator.push(context, MaterialPageRoute(builder: (C) => MySplashScreen()));
+        }
+        else
+        {
+          clearCartNow(context);
+        }
+      }
+    );
+  }
 
   @override
   void initState() {
