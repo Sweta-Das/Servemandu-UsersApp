@@ -145,7 +145,7 @@ class MyDrawer extends StatelessWidget
                 ListTile(
                   leading: const Icon(Icons.exit_to_app, color: Colors.black,),
                   title: const Text(
-                    "Recommendation For You",
+                    "Recommended For You",
                     style: TextStyle(color: Colors.black),
                   ),
                   onTap: ()
