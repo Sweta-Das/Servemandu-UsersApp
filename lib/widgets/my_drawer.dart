@@ -8,6 +8,7 @@ import 'package:servemandu_users_app/mainScreens/history_screen.dart';
 import 'package:servemandu_users_app/mainScreens/home_screen.dart';
 import 'package:servemandu_users_app/mainScreens/my_orders_screen.dart';
 import 'package:servemandu_users_app/mainScreens/search_screen.dart';
+import 'package:servemandu_users_app/mainScreens/recommendation_screen.dart';
 
 
 class MyDrawer extends StatelessWidget
@@ -134,6 +135,24 @@ class MyDrawer extends StatelessWidget
                   onTap: ()
                   {
                     Navigator.push(context, MaterialPageRoute(builder: (c)=> AddressScreen()));
+                  },
+                ),
+                const Divider(
+                  height: 10,
+                  color: Colors.grey,
+                  thickness: 2,
+                ),
+                ListTile(
+                  leading: const Icon(Icons.exit_to_app, color: Colors.black,),
+                  title: const Text(
+                    "Recommendation For You",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  onTap: ()
+                  {
+                    firebaseAuth.signOut().then((value){
+                      Navigator.push(context, MaterialPageRoute(builder: (c)=> const RecommendationScreen()));
+                    });
                   },
                 ),
                 const Divider(
