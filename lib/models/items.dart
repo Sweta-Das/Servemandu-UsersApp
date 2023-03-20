@@ -57,4 +57,17 @@ class Items
 
     return data;
   }
+
+  // Fetching item details for Recommendation Screen
+  factory Items.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document)
+  {
+    final data = document.data()!;
+    return Items(
+      itemID: document.id,
+      //itemID: data["itemID"], 
+      title: data["title"], 
+      longDescription: data["longDescription"], 
+      //price: data["price"],
+    );
+  }
 }

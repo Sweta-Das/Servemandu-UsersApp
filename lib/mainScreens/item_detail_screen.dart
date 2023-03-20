@@ -19,7 +19,7 @@ class ItemDetailsScreen extends StatefulWidget
 
 class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
 
-  TextEditingController counterTextEditingController = TextEditingController();
+  //TextEditingController counterTextEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context)
