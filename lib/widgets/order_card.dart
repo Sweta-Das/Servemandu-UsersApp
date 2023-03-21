@@ -115,25 +115,7 @@ Widget placedOrderDesignWidget(Items model, BuildContext context, seperateQuanti
                 ],
               ),
 
-              //number of services selected
-              // Row(
-              //   children: [
-              //     const Text(
-              //       "x ",
-              //       style: TextStyle(color: Colors.black54, fontSize: 14),
-              //     ),
-              //     Expanded(
-              //       child: Text(
-              //         seperateQuantitiesList,
-              //         style: const TextStyle(
-              //           color: Colors.black54,
-              //           fontSize: 30,
-              //           fontFamily: "Acme",
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
+
             ],
           ),
         ), 

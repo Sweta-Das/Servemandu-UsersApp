@@ -35,19 +35,6 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
           //Displaying the service image
           Image.network(widget.model!.thumbnailUrl.toString()),
 
-          //Displaying the number of times the service is selected for
-          // Padding(
-          //   padding: const EdgeInsets.all(10.0),
-          //   child: NumberInputPrefabbed.roundedButtons(
-          //     controller: counterTextEditingController,
-          //     incDecBgColor: Colors.amber,
-          //     min: 1,
-          //     max: 3,
-          //     initialValue: 1,
-          //     buttonArrangement: ButtonArrangement.incRightDecLeft,
-          //   ),
-          // ),
-
           const SizedBox(height: 20,),
 
           //Displaying the title of the service
