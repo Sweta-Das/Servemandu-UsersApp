@@ -50,6 +50,7 @@ class _MenusScreenState extends State<MenusScreen> {
         leading: IconButton(
           onPressed: () 
           {
+            //Navigator.pop;
             clearCartNow(context);
 
             Navigator.push(context, MaterialPageRoute(builder: ((c) => const MySplashScreen())));

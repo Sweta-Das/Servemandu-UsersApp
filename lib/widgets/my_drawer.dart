@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:servemandu_users_app/authentication/auth_screen.dart';
 import 'package:servemandu_users_app/global/global.dart';
 import 'package:servemandu_users_app/mainScreens/address_screen.dart';
+import 'package:servemandu_users_app/mainScreens/customer_support.dart';
 import 'package:servemandu_users_app/mainScreens/history_screen.dart';
 import 'package:servemandu_users_app/mainScreens/home_screen.dart';
 import 'package:servemandu_users_app/mainScreens/my_orders_screen.dart';
@@ -143,7 +144,7 @@ class MyDrawer extends StatelessWidget
                   thickness: 2,
                 ),
                 ListTile(
-                  leading: const Icon(Icons.exit_to_app, color: Colors.black,),
+                  leading: const Icon(Icons.recommend_sharp, color: Colors.black,),
                   title: const Text(
                     "Recommended For You",
                     style: TextStyle(color: Colors.black),
@@ -153,6 +154,22 @@ class MyDrawer extends StatelessWidget
                     firebaseAuth.signOut().then((value){
                       Navigator.push(context, MaterialPageRoute(builder: (c)=> RecommendationScreen()));
                     });
+                  },
+                ),
+                const Divider(
+                  height: 10,
+                  color: Colors.grey,
+                  thickness: 2,
+                ),
+                ListTile(
+                  leading: const Icon(Icons.support_agent, color: Colors.black,),
+                  title: const Text(
+                    "Customer Support",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  onTap: ()
+                  {
+                    Navigator.push(context, MaterialPageRoute(builder: (c)=> CustomerSupport()));
                   },
                 ),
                 const Divider(

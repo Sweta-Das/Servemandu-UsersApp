@@ -17,9 +17,16 @@ class SimpleAppBar extends StatelessWidget with PreferredSizeWidget
   {
     return AppBar(
 
-        iconTheme: const IconThemeData(
-          color: Colors.white,
-        ),
+        leading: IconButton(
+        icon: const Icon(Icons.arrow_back),
+        onPressed: ()
+        {
+          Navigator.pop(context);
+        },
+      ),
+        // iconTheme: const IconThemeData(
+        //   color: Colors.white,
+        // ),
 
         flexibleSpace: Container(
         decoration: const BoxDecoration(
