@@ -26,7 +26,6 @@ seperateOrderServiceIDs(orderIDs)
     //String getItemId = (pos != -1) ? item.substring(0, pos) : item;
     String getServiceId = item;
     print("\nThis is serviceID now = " + getServiceId);
-
     seperateServiceIDsList.add(getServiceId);
   }
 

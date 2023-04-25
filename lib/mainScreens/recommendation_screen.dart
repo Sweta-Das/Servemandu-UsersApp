@@ -3,7 +3,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:servemandu_users_app/widgets/simple_appbar.dart';
 import 'package:tflite_flutter/tflite_flutter.dart';
-import 'dart:math';
+//import 'dart:math';
 
 class RecommendationScreen extends StatefulWidget {
   const RecommendationScreen({Key? key}) : super(key: key);
@@ -73,99 +73,118 @@ class _RecommendationScreenState extends State<RecommendationScreen> {
     print(input);
     print(output);
 
-    switch(output[0][15])
-    {
-
-    }
-      
-    //for(int)
-    String x1 = output[0][0].toString();
-    String y1 = "Air Conditioner";
-    x1 = y1;
-    // print(x1);
-
-    String x2 = output[0][1].toString();
-    String y2 = "Air Conditioner";
-    x2 = y2;
-    // print(x1);
-
-    String x3 = output[0][2].toString();
-    String y3 = "Air Conditioner";
-    x3 = y3;
-    // print(x1);
-
-    String x4 = output[0][3].toString();
-    String y4 = "Air Conditioner";
-    x4 = y4;
-    // print(x1);
-
-    String x5 = output[0][4].toString();
-    String y5 = "Air Conditioner";
-    x5 = y5;
-    // print(x1);
-
-    String x6 = output[0][5].toString();
-    String y6 = "Air Conditioner";
-    x6 = y6;
-    // print(x1);
-
-    String x7 = output[0][6].toString();
-    String y7 = "Air Conditioner";
-    x7 = y7;
-    // print(x1);
-
-    String x8 = output[0][7].toString();
-    String y8 = "Air Conditioner";
-    x8 = y8;
-    // print(x1);
-
-    String x9 = output[0][8].toString();
-    String y9 = "Air Conditioner";
-    x9 = y9;
-    // print(x1);
-
-    String x10 = output[0][9].toString();
-    String y10 = "Air Conditioner";
-    x10 = y10;
-    // print(x1);
-
-    String x11 = output[0][10].toString();
-    String y11 = "Air Conditioner";
-    x11 = y11;
-    // print(x1);
-
-    String x12 = output[0][11].toString();
-    String y12 = "Air Conditioner";
-    x12 = y12;
-    // print(x1);
-
-    String x13 = output[0][12].toString();
-    String y13 = "Air Conditioner";
-    x13 = y13;
-    // print(x1);
-
-    String x14 = output[0][13].toString();
-    String y14 = "Air Conditioner";
-    x14 = y14;
-    // print(x1);
-
-    String x15 = output[0][14].toString();
-    String y15 = "Air Conditioner";
-    x15 = y15;
-    // print(x1);
-
-    String x16 = output[0][15].toString();
-    String y16 = "Air Conditioner";
-    x16 = y16;
-    // print(x1);
-
-
-    
+       
     this.setState(() {
-      output[0].sort();
-      predValue = x1;
+       //finding max probability
+       var max = output[0][0];
+       var j;
+       for(var i=0; i<output[0].length; i++)
+       {
+        if (output[0][i] > max) {
+          max = output[0][i];  
+          j=i;        
+        }
+       }
+       print(max);
+       print(j);
+       int k = j;
+
+       switch(k){
+        case 0: {
+          predValue = "Air Conditioner";
+          break;
+        }
+
+        case 1: {
+          predValue = "Antivirus";
+          break;
+        }
+
+        case 2: {
+          predValue = "Electrician";
+          break;
+        }
+
+        case 3: {
+          predValue = "Facial";
+          break;
+        }
+
+        case 4: {
+          predValue = "Gardening";
+          break;
+        }
+
+        case 5: {
+          predValue = "Hardware";
+          break;
+        }
+
+        case 6: {
+          predValue = "Manicure";
+          break;
+        }
+
+        case 7: {
+          predValue = "Microwave";
+          break;
+        }
+
+        case 8: {
+          predValue = "Pedicure";
+          break;
+        }
+
+        case 9: {
+          predValue = "Pest Cleaning";
+          break;
+        }
+
+        case 10: {
+          predValue = "Plumbing Service";
+
+          break;
+        }
+
+        case 11: {
+          predValue = "Refrigerator";
+          break;
+        }
+
+        case 12: {
+          predValue = "Room Cleaning";
+          break;
+        }
+
+        case 13: {
+          predValue = "Software";
+          break;
+        }
+
+        case 14: {
+          predValue = "TV";
+          break;
+        }
+
+        case 15: {
+          predValue = "Thread & wax";
+          displayImage();
+          break;
+        }
+      }
+      
     });
+    displayImage();
   }
+
+  void displayImage() {
+    //await predValue;
+    SizedBox(height: 20,);
+    CircleAvatar(
+      radius: 100,
+      child: Image.asset("images/Logo.png"),
+    );
+  } 
 
   @override
   Widget build(BuildContext context) {
@@ -218,29 +237,140 @@ class _RecommendationScreenState extends State<RecommendationScreen> {
                   children: [
                     TextSpan(text: 'Wanna know ', style: TextStyle(fontStyle: FontStyle.italic, fontSize: 20, fontWeight: FontWeight.bold, color: Colors.lightBlue)),
                     TextSpan(text: 'what users nearby you are booking?', style: TextStyle(fontSize: 17, color: Colors.black54)),
-                    //TextSpan(text: 'location.', style: TextStyle(fontStyle: FontStyle.italic, fontWeight: FontWeight.bold, color: Colors.blueGrey, fontSize: 17)),
                   ],
                 ),
               ),
 
-              //Text('Wanna know what users nearby you are booking?'),
               const SizedBox(height: 15),
               ElevatedButton(
                 onPressed: predData,
-                child:  Center(child: Text("Recommended Service!")),
+                 child:  Center(child: Text("Recommended Service!")),
               ),
 
               SizedBox(height: 40,),
               Center(
                 child: Text.rich(
-                  TextSpan(
-                    children: [
-                    TextSpan(text: "$predValue Service", style: TextStyle(color: Colors.blue[900], fontSize: 20),),],
-                  ),
-                  ),
-              ),
+                        TextSpan(
+                          children: [
+                          TextSpan(text: "$predValue Service", style: TextStyle(color: Colors.blue[900], fontSize: 20),),],
+                        ),
+                    ),
+              ),  
+              SizedBox(height: 40,),
+              if(predValue == "Air Conditioner")
+               Center(
+                 child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage("slider/0.png")),
+               )
+              
+              else if(predValue == "Antivirus")
+                Center(
+                 child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage("slider/21.png")),
+               )
+               
+              else if(predValue == "Electrician")
+                Center(
+                 child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage("slider/15.png")),
+               )
+               
+              else if(predValue == "Facial")
+                Center(
+                 child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage("slider/17.png")),
+               )
+               
+              else if(predValue == "Gardening")
+                Center(
+                 child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage("slider/11.png")),
+               )
+               
+              else if(predValue == "Hardware")
+                Center(
+                 child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage("slider/25.png")),
+               )
+              
+              else if(predValue == "Manicure")
+                Center(
+                 child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage("slider/19.png")),
+               )
+               
+              else if(predValue == "Microwave")
+                Center(
+                 child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage("slider/2.png")),
+               )
+              
+              else if(predValue == "Pedicure")
+                Center(
+                 child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage("slider/18.png")),
+               )
+               
+              else if(predValue == "Pest Cleaning")
+                Center(
+                 child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage("slider/10.png")),
+               )
+               
+              else if(predValue == "Plumbing")
+                Center(
+                 child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage("slider/16.png")),
+               )
+               
+              else if(predValue == "Refrigerator")
+                Center(
+                 child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage("slider/22.png")),
+               )
+               
+              else if(predValue == "Room Cleaning")
+                Center(
+                 child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage("slider/23.png")),
+               )
+               
+              else if(predValue == "Software")
+                Center(
+                 child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage("slider/24.png")),
+               )
+              
+              else if(predValue == "TV")
+                Center(
+                 child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage("slider/1.png")),
+               )
+              
+              else if(predValue == "Thread & wax")
+                Center(
+                 child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage("slider/20.png")),
+               ),     
               
             ],
+            
           ),
           
       ),
